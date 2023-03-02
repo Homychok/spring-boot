@@ -1,9 +1,10 @@
-package rest.service;
+package com.example.springboot1.service;
 
+import com.example.springboot1.dao.EmployeeDAO;
+import com.example.springboot1.entity.Employee;
+import com.example.springboot1.exceptions.EmployeeException;
 import org.springframework.stereotype.Service;
-import rest.dao.EmployeeDAO;
-import rest.entity.Employee;
-import rest.exceptions.EmployeeException;
+
 
 import javax.transaction.Transactional;
 import java.util.List;

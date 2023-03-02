@@ -1,9 +1,9 @@
-package rest.service;
+package com.example.springboot2.service;
 
+import com.example.springboot2.dao.EmployeeRepository;
+import com.example.springboot2.entity.Employee;
 import org.springframework.stereotype.Service;
-import rest.entity.Employee;
 
-import javax.transaction.Transactional;
 import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -21,7 +21,7 @@ private EmployeeRepository employeeRepository;
 
     @Override
     public Employee getEmployeeById(int id) {
-        return employeeRepository.findById.get();
+        return employeeRepository.findById(id).get();
     }
 
     @Override
@@ -39,8 +39,8 @@ private EmployeeRepository employeeRepository;
     public void deleteEmployee(int id) {
         employeeRepository.deleteById(id);
     }
-    @Override
-    public List<Employee> getEmployeeByName(String name) {
+
+    public List<Employee> findAllByName(String name) {
         return employeeRepository.findAllByName(name);
     }
 }

@@ -1,9 +1,10 @@
-package rest.dao;
+package com.example.springboot2.dao;
 
-import rest.entity.Employee;
+import com.example.springboot2.entity.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface EmployeeRepository extends  JpaRepository<Employee, Integer>{
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     List<Employee> findAllByName(String name);
 }
