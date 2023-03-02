@@ -48,7 +48,7 @@ public class RestControllerNew {
 
     }
     @GetMapping("/employee/name/{name}")
-    public List<Employee> getEmployeeByName(@PathVariable String name) {
-        return employeeService.getEmployeeByName(name);
+    public List<Employee> findAllByName(@PathVariable String name) {
+        return employeeService.findAllByName(name);
     }
 }
