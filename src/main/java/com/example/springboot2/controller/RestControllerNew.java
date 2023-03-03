@@ -1,8 +1,9 @@
-package rest.controller;
+package com.example.springboot2.controller;
 
+import com.example.springboot2.entity.Employee;
+import com.example.springboot2.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
-import rest.entity.Employee;
-import rest.service.EmployeeService;
+
 
 import java.util.List;
 
@@ -45,5 +46,9 @@ public class RestControllerNew {
         employeeService.deleteEmployee(id);
         return "Employee with id = " + id + " was deleted";
 
+    }
+    @GetMapping("/employee/name/{name}")
+    public List<Employee> findAllByName(@PathVariable String name) {
+        return employeeService.findAllByName(name);
     }
 }

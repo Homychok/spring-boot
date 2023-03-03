@@ -1,6 +1,7 @@
-package rest.service;
+package com.example.springboot1.service;
 
-import rest.entity.Employee;
+
+import com.example.springboot1.entity.Employee;
 
 import java.util.List;
 
@@ -10,4 +11,5 @@ public interface EmployeeService {
     void addEmployee(Employee employee);
     void updateEmployee(Employee employee);
     void deleteEmployee(int id);
+
 }

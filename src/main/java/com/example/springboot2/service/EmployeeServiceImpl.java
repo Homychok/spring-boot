@@ -1,57 +1,47 @@
-package rest.service;
+package com.example.springboot2.service;
 
+import com.example.springboot2.dao.EmployeeRepository;
+import com.example.springboot2.entity.Employee;
 import org.springframework.stereotype.Service;
-import rest.dao.EmployeeDAO;
-import rest.entity.Employee;
-import rest.exceptions.EmployeeException;
 
-import javax.transaction.Transactional;
 import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
-private EmployeeDAO employeeDAO;
+private EmployeeRepository employeeRepository;
 
-    public EmployeeServiceImpl(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
     @Override
-    @Transactional
     public List<Employee> getEmployee() {
-        return employeeDAO.getEmployee();
+        return employeeRepository.findAll();
     }
 
     @Override
-    @Transactional
     public Employee getEmployeeById(int id) {
-    Employee employee = employeeDAO.getEmployeeById(id);
-        if (employee == null) {
-            throw new EmployeeException("Employee with id=" + id + "doesn't exist");
-        }
-        return employee;
+        return employeeRepository.findById(id).get();
     }
 
     @Override
-    @Transactional
     public void addEmployee(Employee employee) {
-employeeDAO.addEmployee(employee);
+    employeeRepository.save(employee);
     }
 
     @Override
-    @Transactional
     public void updateEmployee(Employee employee) {
-        employeeDAO.updateEmployee(employee);
+        employeeRepository.save(employee);
 
     }
 
     @Override
-    @Transactional
     public void deleteEmployee(int id) {
-    Employee employee = employeeDAO.getEmployeeById(id);
-        if (employee == null) {
-            throw new EmployeeException("Employee with id=" + id + "doesn't exist");
-        }
-        employeeDAO.deleteEmployee(id);
+        employeeRepository.deleteById(id);
+    }
+    @Override
+
+    public List<Employee> findAllByName(String name) {
+        return employeeRepository.findAllByName(name);
     }
 }

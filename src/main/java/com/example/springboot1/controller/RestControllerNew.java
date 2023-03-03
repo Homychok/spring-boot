@@ -1,8 +1,9 @@
-package rest.controller;
+package com.example.springboot1.controller;
 
+import com.example.springboot1.entity.Employee;
+import com.example.springboot1.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
-import rest.entity.Employee;
-import rest.service.EmployeeService;
+
 
 import java.util.List;
 

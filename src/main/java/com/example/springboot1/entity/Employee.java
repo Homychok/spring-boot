@@ -1,4 +1,4 @@
-package rest.entity;
+package com.example.springboot1.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -25,6 +25,10 @@ public class Employee {
         this.name = name;
         this.department = department;
         this.salary = salary;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {

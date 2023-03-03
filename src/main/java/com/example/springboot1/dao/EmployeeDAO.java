@@ -1,6 +1,6 @@
-package rest.dao;
+package com.example.springboot1.dao;
 
-import rest.entity.Employee;
+import com.example.springboot1.entity.Employee;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
-package rest.dao;
+package com.example.springboot1.dao;
 
-//import org.hibernate.Session;
-//import org.hibernate.SessionFactory;
-//import org.hibernate.query.Query;
+import com.example.springboot1.entity.Employee;
 import org.springframework.stereotype.Repository;
-import rest.entity.Employee;
+import javax.persistence.Query;
 
+
+import javax.persistence.EntityManager;
 import java.util.List;
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO{
@@ -14,15 +14,16 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         this.entityManager = entityManager;
     }
     public List<Employee> getEmployee() {
-        return entityManager.createQuery("From Employee").getResultList;
+        return entityManager.createQuery("From Employee").getResultList();
     }
 
     public Employee getEmployeeById(int id) {
         return entityManager.find(Employee.class, id);    }
 
+
     public void addEmployee(Employee employee) {
         Employee newEmployee = entityManager.merge(employee);
-        Employee setId(newEmployee.getId());
+        employee.setId(newEmployee.getId());
     }
 
     public void updateEmployee(Employee employee) {
